@@ -17,7 +17,7 @@
 
 ![изображение](https://github.com/user-attachments/assets/de15beab-ec10-44bb-a721-90b340422a6f)
 
-1.6. Переподключитесь к базе данных от имени sys_temp с sha2: с версии 9.0 плагин mysql_native_password удален, исползую новый sha256_password.
+1.6. Переподключитесь к базе данных от имени sys_temp с sha2: с версии 9.0 плагин mysql_native_password удален, использую новый sha256_password.
 ```
 ALTER USER 'sys_temp' IDENTIFIED WITH sha256_password BY 'password';
 ```
