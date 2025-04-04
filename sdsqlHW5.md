@@ -1,4 +1,4 @@
-# Домашнее задание к занятию «Индексы»
+![изображение](https://github.com/user-attachments/assets/dbfe9527-5274-4303-af49-46f5bacf86dd)![изображение](https://github.com/user-attachments/assets/cf12fb00-ffc8-4dc4-9af2-4ba7893bb3c3)# Домашнее задание к занятию «Индексы»
 
 ### Задание 1
 
@@ -23,9 +23,22 @@ where date(p.payment_date) = '2005-07-30' and p.payment_date = r.rental_date and
 - перечислите узкие места;
 - оптимизируйте запрос: внесите корректировки по использованию операторов, при необходимости добавьте индексы.
 
-Ответ: После анализа исходного запроса было выявляено, что функция обрабатывает излишние таблицы, а именно, 
+Ответ: После анализа исходного запроса было выявляено, что оконная функция обрабатывает излишние таблицы, а именно, renbtal, inventory и film. По сути, нужно определить сумму платажей клиентов на определенную дату и ранее указанные таблицы бесполезны, т.к. не представляются в итоговом виде.
 
-Actual time до = 3801, после = ххх, в итоге оптимизация запроса повысилась в ххх раз.
+Оптимизируем:
+```SQL
+select distinct concat(c.last_name, ' ', c.first_name), sum(p.amount) over (partition by c.customer_id)
+from payment p, customer c
+where date(p.payment_date) = '2005-07-30' and p.customer_id = c.customer_id;
+```
+
+Actual time до = 3934, после = 14, в итоге оптимизация обработки запроса повысилась в 281 раз.
+
+ДО:
+![изображение](https://github.com/user-attachments/assets/c6196f9d-cd54-477d-82f1-fc1573ac8fb1)
+
+ПОСЛЕ:
+![изображение](https://github.com/user-attachments/assets/9c741737-2b0b-40a3-a3ad-24683f5e249c)
 
 ### Задание 3*
 
