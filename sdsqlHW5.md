@@ -1,4 +1,4 @@
-![изображение](https://github.com/user-attachments/assets/dbfe9527-5274-4303-af49-46f5bacf86dd)![изображение](https://github.com/user-attachments/assets/cf12fb00-ffc8-4dc4-9af2-4ba7893bb3c3)# Домашнее задание к занятию «Индексы»
+# Домашнее задание к занятию «Индексы»
 
 ### Задание 1
 
@@ -34,11 +34,11 @@ where date(p.payment_date) = '2005-07-30' and p.customer_id = c.customer_id;
 
 Actual time до = 3934, после = 14, в итоге оптимизация обработки запроса повысилась в 281 раз.
 
-ДО:
+ДО:  
 ![изображение](https://github.com/user-attachments/assets/c6196f9d-cd54-477d-82f1-fc1573ac8fb1)
 
-ПОСЛЕ:
-![изображение](https://github.com/user-attachments/assets/9c741737-2b0b-40a3-a3ad-24683f5e249c)
+ПОСЛЕ:  
+![изображение](https://github.com/user-attachments/assets/baf0afb3-c473-4d32-ad46-405e2283285f)
 
 ### Задание 3*
 
