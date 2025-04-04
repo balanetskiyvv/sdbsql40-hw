@@ -45,4 +45,4 @@ ALTER USER 'sys_temp' IDENTIFIED WITH sha256_password BY 'password';
 
 3.2. Выполните запрос на получение списка прав для пользователя sys_temp. (скриншот)
 
-*Результатом работы должны быть скриншоты обозначенных заданий, а также простыня со всеми запросами.*
+![изображение](https://github.com/user-attachments/assets/edb46b03-2778-45e8-9cfa-79c365e2f858)
