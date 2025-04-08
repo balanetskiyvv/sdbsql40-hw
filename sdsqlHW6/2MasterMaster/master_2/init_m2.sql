@@ -1,0 +1,10 @@
+CREATE USER 'balanetrepl_2'@'%' IDENTIFIED BY 'pass';
+GRANT REPLICATION SLAVE ON *.* TO 'balanetrepl_2'@'%';
+
+CHANGE MASTER TO 
+MASTER_HOST = 'master-1', 
+MASTER_USER ='balanetrepl_1', 
+MASTER_PASSWORD = 'pass',
+GET_MASTER_PUBLIC_KEY=1;
+
+START SLAVE;
