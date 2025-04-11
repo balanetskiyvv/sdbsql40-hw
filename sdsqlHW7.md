@@ -30,17 +30,17 @@
 - таблица Users разделена на 2 сервера по фамилии A-N и O-Z;
 - таблица Stores была перенесена полностью в отдельный сервер без изменений.
 
-<img width="581" alt="изображение" src="https://github.com/user-attachments/assets/516beb73-3445-4abf-b677-5d016decff03" />
+<img width="579" alt="изображение" src="https://github.com/user-attachments/assets/99e0425c-eb1d-4e37-900a-c70c3c9fd153" />
 
 ### Вертикальный шардинг:
 
 - Каждая таблица находится на отдельном сервере.
 
-<img width="609" alt="изображение" src="https://github.com/user-attachments/assets/fe4bed38-fe74-468c-925d-e740e70aaee3" />
+<img width="612" alt="изображение" src="https://github.com/user-attachments/assets/5538df38-122a-47d4-a0a6-0c00dc2b6b18" />
 
 ---
 ### Задание 3*
 
 Выполните настройку выбранных методов шардинга из задания 2.
 
-*Пришлите конфиг Docker и SQL скрипт с командами для базы данных*.
+См. сопутствующие папки.
