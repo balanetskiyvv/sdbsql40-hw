@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  postgres_b:
+    image: postgres:latest
+    container_name: "postgres_b"
+    env_file: .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5632:5432"
+    volumes:
+      - ./conf/postgres_b/shards.sql:/docker-entrypoint-initdb.d/start.sql
+
+  postgres_b1:
+    image: postgres:latest
+    container_name: "postgres_b1"
+    env_file: .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5633:5432"
+    volumes:
+      - ./conf/postgres_b1/shards.sql:/docker-entrypoint-initdb.d/start.sql
+    depends_on:
+      - postgres_b
+
+  postgres_b2:
+    image: postgres:latest
+    container_name: "postgres_b2"
+    env_file: .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5634:5432"
+    volumes:
+      - ./conf/postgres_b2/shards.sql:/docker-entrypoint-initdb.d/start.sql
+    depends_on:
+      - postgres_b
+
+  postgres_b3:
+    image: postgres:latest
+    container_name: "postgres_b3"
+    env_file: .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5635:5432"
+    volumes:
+      - ./conf/postgres_b3/shards.sql:/docker-entrypoint-initdb.d/start.sql
+    depends_on:
+      - postgres_b

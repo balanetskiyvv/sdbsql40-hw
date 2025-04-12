@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  users_db:
+    image: postgres:latest
+    container_name: "users_db"
+    env_file: .env
+    environment:
+      POSTGRES_DB: users_database
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5632:5432"
+    volumes:
+      - ./conf/users_db/shards.sql:/docker-entrypoint-initdb.d/start.sql
+
+  users_shard1:
+    image: postgres:latest
+    container_name: "users_shard1"
+    env_file: .env
+    environment:
+      POSTGRES_DB: shard_database_1
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5633:5432"
+    volumes:
+      - ./conf/users_shard1/shards.sql:/docker-entrypoint-initdb.d/start.sql
+    depends_on:
+      - users_db
+
+  users_shard2:
+    image: postgres:latest
+    container_name: "users_shard2"
+    env_file: .env
+    environment:
+      POSTGRES_DB: shard_database_2
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5634:5432"
+    volumes:
+      - ./conf/users_shard2/shards.sql:/docker-entrypoint-initdb.d/start.sql
+    depends_on:
+      - users_db
