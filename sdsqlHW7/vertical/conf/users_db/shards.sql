@@ -55,7 +55,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER distribute_user_trigger
-    AFTER INSERT ON users_view
+    AFTER INSERT ON users
     FOR EACH ROW
     EXECUTE FUNCTION distribute_user();
 
