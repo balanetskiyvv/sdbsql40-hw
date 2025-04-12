@@ -22,6 +22,8 @@ services:
       - "5633:5432"
     volumes:
       - ./conf/users_shard1/shards.sql:/docker-entrypoint-initdb.d/start.sql
+    depends_on:
+      - users_db
 
   users_shard2:
     image: postgres:latest
@@ -33,3 +35,5 @@ services:
       - "5634:5432"
     volumes:
       - ./conf/users_shard2/shards.sql:/docker-entrypoint-initdb.d/start.sql
+    depends_on:
+      - users_db
